@@ -1,6 +1,5 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace Faker.Globals
 {
@@ -14,8 +13,9 @@ namespace Faker.Globals
 			string targetPoolName = typeof(T).Name;
 			if (!qPool.ContainsKey(targetPoolName)) {
 				qPool[targetPoolName] = new Queue<ObjectController>();
-				parents[targetPoolName] = Instantiate(new GameObject(), transform, true).transform;
-				parents[targetPoolName].name = $"{targetPoolName}Parent";
+				GameObject newParent = new GameObject($"{targetPoolName}Parent");
+				newParent.transform.SetParent(transform);
+				parents[targetPoolName] = newParent.transform;
 			}
 			if (qPool[targetPoolName].TryDequeue(out ObjectController res)) {
 				return res.GetComponent<T>();
