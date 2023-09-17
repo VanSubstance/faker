@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5933989639039576518}
   - component: {fileID: 5639852868609682979}
   - component: {fileID: 2571908929100925801}
-  - component: {fileID: 2711595245800376541}
+  - component: {fileID: 8172275911051042402}
   m_Layer: 5
   m_Name: Footer Button
   m_TagString: Untagged
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2711595245800376541
+--- !u!114 &8172275911051042402
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,13 +133,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 22591707701028424}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd54ab4a1244740fea2d2075ca3ea30d, type: 3}
+  m_Script: {fileID: 11500000, guid: d7f880d631fb849ef8070074b327be68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "\uD478\uD130"
+  text: 
   sprite: {fileID: 21300000, guid: b4cb01635be9b4cafaae3d3a2b1b9bd7, type: 3}
   tmp: {fileID: 5789515291780597900}
   img: {fileID: 463934020880910318}
+  contentKey: 0
 --- !u!1 &4979409677642571092
 GameObject:
   m_ObjectHideFlags: 0

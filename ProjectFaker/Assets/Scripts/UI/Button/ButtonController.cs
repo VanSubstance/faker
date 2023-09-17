@@ -2,9 +2,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Faker.UI
+namespace Faker.UI.Button
 {
-	[RequireComponent(typeof(Button))]
+	[RequireComponent(typeof(UnityEngine.UI.Button))]
 	public class ButtonController : MonoBehaviour
 	{
 		[SerializeField]
@@ -17,7 +17,7 @@ namespace Faker.UI
 		[SerializeField]
 		private Image img;
 
-		private void Awake()
+		protected void Awake()
 		{
 			tmp.text = text;
 			img.sprite = sprite;
