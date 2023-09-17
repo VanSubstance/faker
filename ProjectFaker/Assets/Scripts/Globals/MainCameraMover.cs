@@ -10,6 +10,11 @@ namespace Faker.Globals
 
 		private void Update()
 		{
+			switch (ContentManager.Instance.CurrentContentActive) {
+				case ContentEnum.Deck:
+				case ContentEnum.Shop:
+					return;
+			}
 			if (Input.GetMouseButtonDown(0)) {
 				posDragStart = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 				UIManager.Instance.Shard.TouchStart((Vector3)posDragStart);

@@ -5,6 +5,7 @@ namespace Faker.UI
 {
 	public class ContentManager : SingletonObject<ContentManager>
 	{
+		public ContentEnum CurrentContentActive = ContentEnum.Unset;
 		private ContentController[] contents;
 
 		private void Awake()
@@ -22,6 +23,7 @@ namespace Faker.UI
 				cont.isActive = cont.contentKey.Equals(targetKey);
 				return true;
 			});
+			CurrentContentActive = targetKey;
 		}
 	}
 }
