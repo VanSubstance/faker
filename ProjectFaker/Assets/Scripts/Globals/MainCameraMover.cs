@@ -1,4 +1,5 @@
 ﻿using Faker.UI;
+using Faker.UI.PCT;
 using UnityEngine;
 
 namespace Faker.Globals
@@ -10,9 +11,9 @@ namespace Faker.Globals
 
 		private void Update()
 		{
-			switch (ContentManager.Instance.CurrentContentActive) {
-				case ContentEnum.Deck:
-				case ContentEnum.Shop:
+			switch (PCTManager.Instance.CurrentContentActive) {
+				case PCTEnum.Inventory:
+				case PCTEnum.Shop:
 					return;
 			}
 			if (Input.GetMouseButtonDown(0)) {
