@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
-namespace Faker.UI
+namespace Faker.UI.PCT
 {
-	public class ContentController : MonoBehaviour
+	public class PCTController : MonoBehaviour
 	{
-		public ContentEnum contentKey = ContentEnum.Unset;
+		public PCTEnum contentKey = PCTEnum.Unset;
 		public bool isActive {
 			get {
 				return gameObject.activeSelf;
@@ -14,9 +14,9 @@ namespace Faker.UI
 			}
 		}
 
-		private void Awake()
+		protected void Awake()
 		{
-			if (contentKey == ContentEnum.Unset) {
+			if (contentKey == PCTEnum.Unset) {
 				Destroy(gameObject);
 			}
 		}

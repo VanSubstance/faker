@@ -1,23 +1,24 @@
 ﻿using System.Linq;
 using Faker.Globals;
+using UnityEngine;
 
-namespace Faker.UI
+namespace Faker.UI.PCT
 {
-	public class ContentManager : SingletonObject<ContentManager>
+	public class PCTManager : SingletonObject<PCTManager>
 	{
-		public ContentEnum CurrentContentActive = ContentEnum.Unset;
-		private ContentController[] contents;
+		public PCTEnum CurrentContentActive = PCTEnum.Unset;
+		private PCTController[] contents;
 
 		private void Awake()
 		{
-			contents = transform.GetComponentsInChildren<ContentController>();
+			contents = transform.GetComponentsInChildren<PCTController>();
 			contents.All((cont) => {
 				cont.isActive = false;
 				return true;
 			});
 		}
 
-		public void Open(ContentEnum targetKey)
+		public void Open(PCTEnum targetKey)
 		{
 			contents.All((cont) => {
 				cont.isActive = cont.contentKey.Equals(targetKey);

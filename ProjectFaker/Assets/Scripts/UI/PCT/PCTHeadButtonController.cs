@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
-using Faker.UI.PCT;
+using Faker.UI.Button;
 
-namespace Faker.UI.Button
+namespace Faker.UI.PCT
 {
-	public class FooterButtonController : ButtonController
+	public class PCTHeadButtonController : ButtonController
 	{
 		[SerializeField]
 		private PCTEnum contentKey;
