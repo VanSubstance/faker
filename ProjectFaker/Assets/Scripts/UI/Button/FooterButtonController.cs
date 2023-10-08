@@ -11,7 +11,7 @@ namespace Faker.UI.Button
 		private new void Awake()
 		{
 			base.Awake();
-			GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() => {
+			AddClickEvent(() => {
 				PCTManager.Instance.Open(contentKey);
 			});
 		}
