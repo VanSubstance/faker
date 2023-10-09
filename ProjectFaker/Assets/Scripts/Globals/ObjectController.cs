@@ -3,11 +3,17 @@ using System.Collections;
 
 namespace Faker.Globals
 {
-	public abstract class ObjectController : MonoBehaviour
+	public abstract class ObjectController<T> : MonoBehaviour, IObjectControllable
 	{
-
-		public ObjectController Init(object _info)
+		private T info;
+		public T Info {
+			get {
+				return info;
+			}
+		}
+		public IObjectControllable Init(T _info)
 		{
+			info = _info;
 			gameObject.SetActive(true);
 			OnInit(_info);
 			return this;
@@ -20,7 +26,12 @@ namespace Faker.Globals
 			OnRelease();
 		}
 
-		protected abstract void OnInit(object _info);
+		public Transform Transform()
+		{
+			return transform;
+		}
+
+		protected abstract void OnInit(T _info);
 		protected abstract void OnRelease();
 	}
 }
