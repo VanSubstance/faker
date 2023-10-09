@@ -16,6 +16,12 @@ namespace Faker.Globals
 				case PCTEnum.Shop:
 					return;
 			}
+
+			//ExecuteDragCamera();
+		}
+
+		private void ExecuteDragCamera()
+		{
 			if (Input.GetMouseButtonDown(0)) {
 				posDragStart = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 				UIManager.Instance.Shard.TouchStart((Vector3)posDragStart);
