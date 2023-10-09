@@ -12,7 +12,7 @@ namespace Faker.Test
     {
       if (Input.GetKeyDown(KeyCode.Space)) {
         IObjectControllable newUnit = ObjectPool.Instance.GetObject<UnitController>().Init(new UnitInfo() { Code = "Warrior", Name = "전사", initPos = new Vector3(Random.Range(-var, var), 1, -10f + Random.Range(-var, var)) });
-        CoroutineManager.Instance.ExecuteAfterTime(() => { newUnit.Release(); });
+        //CoroutineManager.Instance.ExecuteAfterTime(() => { newUnit.Release(); });
       }
     }
   }

@@ -23,5 +23,20 @@ namespace Faker.Unit
     protected override void OnRelease()
     {
     }
+
+    private void OnMouseDown()
+    {
+      Debug.Log("Click Start");
+    }
+
+    private void OnMouseDrag()
+    {
+      position = CommonFunction.GetMousePositionOnGround() + (Vector3.up * 2);
+    }
+
+    private void OnMouseUp()
+    {
+      Debug.Log($"Click End");
+    }
   }
 }
