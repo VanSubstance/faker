@@ -5,14 +5,15 @@ namespace Faker.Unit
 {
   public class UnitController : ObjectController<UnitInfo>
   {
+    [SerializeField]
+    private SpriteRenderer sRenderer;
     protected override void OnInit(UnitInfo _info)
     {
-      throw new System.NotImplementedException();
+      sRenderer.sprite = ResourceStorage.Sprite.Unit[_info.Code];
     }
 
     protected override void OnRelease()
     {
-      throw new System.NotImplementedException();
     }
   }
 }

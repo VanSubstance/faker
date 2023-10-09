@@ -8,6 +8,7 @@ namespace Faker.Globals
 		private void Awake()
 		{
 			LoadPoolingObjects();
+			LoadSprites();
 		}
 
 		/// <summary>
@@ -16,9 +17,21 @@ namespace Faker.Globals
 		private void LoadPoolingObjects()
 		{
 			path = $"Prefabs";
-			foreach (ObjectController obj in Resources.LoadAll<ObjectController>($"{path}/PoolingObjects")) {
-				ResourceStorage.Prefab.Pooling[obj.GetType().Name] = obj;
+			foreach (GameObject obj in Resources.LoadAll<GameObject>($"{path}/PoolingObjects")) {
+				IObjectControllable iobj = obj.GetComponent<IObjectControllable>();
+				ResourceStorage.Prefab.Pooling[iobj.GetType().Name] = iobj;
 			}
 		}
+
+		/// <summary>
+    /// Loading Sprites
+    /// </summary>
+		private void LoadSprites()
+    {
+			path = $"Sprites";
+			foreach(Sprite spr in Resources.LoadAll<Sprite>($"{path}/Units")) {
+				ResourceStorage.Sprite.Unit[spr.name] = spr;
+      }
+    }
 	}
 }
