@@ -1,5 +1,5 @@
 ﻿using System;
-using Faker.Globals;
+
 using UnityEngine;
 
 namespace Faker.Unit

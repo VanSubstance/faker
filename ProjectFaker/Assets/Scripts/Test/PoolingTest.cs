@@ -1,4 +1,4 @@
-﻿using Faker.Globals;
+﻿
 using Faker.Unit;
 using UnityEngine;
 
@@ -12,7 +12,8 @@ namespace Faker.Test
     {
       if (Input.GetKeyDown(KeyCode.Space)) {
         IObjectControllable newUnit = ObjectPool.Instance.GetObject<UnitController>().Init(new UnitInfo() { Code = "Warrior", Name = "전사", initPos = new Vector3(Random.Range(-var, var), 1, -10f + Random.Range(-var, var)) });
-        CoroutineManager.Instance.ExecuteAfterTime(() => { newUnit.Release(); });
+        IngameStorage.UnitsBarrack.Add(newUnit as UnitController);
+        //CoroutineManager.Instance.ExecuteAfterTime(() => { newUnit.Release(); });
       }
     }
   }

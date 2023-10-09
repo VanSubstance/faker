@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using Faker.Globals;
+
 using UnityEngine;
 
 namespace Faker.UI.PCT
@@ -16,6 +16,7 @@ namespace Faker.UI.PCT
 				cont.isActive = false;
 				return true;
 			});
+			Open(PCTEnum.Lobby);
 		}
 
 		public void Open(PCTEnum targetKey)

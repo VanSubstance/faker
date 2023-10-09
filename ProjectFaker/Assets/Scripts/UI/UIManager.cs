@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Faker.Globals;
+
 
 namespace Faker.UI
 {
