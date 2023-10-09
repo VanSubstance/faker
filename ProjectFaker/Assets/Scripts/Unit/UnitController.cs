@@ -1,4 +1,4 @@
-﻿using Faker.Globals;
+﻿
 using UnityEngine;
 
 namespace Faker.Unit
@@ -7,6 +7,13 @@ namespace Faker.Unit
   {
     [SerializeField]
     private SpriteRenderer sRenderer;
+
+    /// <summary>
+    /// 0: 병영 = Barrack
+    /// 1: 출정 = Gate
+    /// </summary>
+    private int currentLocation;
+    private Vector3 prevPosition;
 
     private Vector3 position {
       get => transform.position;
@@ -18,6 +25,7 @@ namespace Faker.Unit
     {
       sRenderer.sprite = ResourceStorage.Sprite.Unit[_info.Code];
       position = _info.initPos;
+      currentLocation = 0;
     }
 
     protected override void OnRelease()
@@ -26,17 +34,36 @@ namespace Faker.Unit
 
     private void OnMouseDown()
     {
-      Debug.Log("Click Start");
+      prevPosition = position;
     }
 
     private void OnMouseDrag()
     {
-      position = CommonFunction.GetMousePositionOnGround() + (Vector3.up * 2);
+      position = CommonFunction.GetMousePositionOnGround(out Transform tfDetected) + (Vector3.up * 2);
+      switch (tfDetected.name) {
+        case "Gate":
+          currentLocation = 1;
+          break;
+        case "Barrack":
+          currentLocation = 0;
+          break;
+      }
     }
 
     private void OnMouseUp()
     {
-      Debug.Log($"Click End");
+      switch ( currentLocation) {
+        case 0:
+          // => Barrack
+          IngameStorage.TryMoveUnitToBarrack(this);
+          break;
+        case 1:
+          // => Gate
+          if (!IngameStorage.TryMoveUnitToGate(this)) {
+            position = prevPosition;
+          }
+          break;
+      }
     }
   }
 }
