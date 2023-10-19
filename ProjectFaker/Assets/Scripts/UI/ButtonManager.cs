@@ -1,28 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
+//using System.Collections;
+//using System.Collections.Generic;
 using UnityEngine;
+
+namespace Faker.UI
+{
 
 public class ButtonManager : MonoBehaviour
 {
 
-    public GameObject scrollViewContent;
-
-    public GameObject buttonTemplate;
+    [SerializeField]
+    private Transform scrollViewContent;
+    [SerializeField]
+    private Transform buttonTemplate;
 
     public int btnCount = 10;
     // Start is called before the first frame update
     void Start()
     {
-        for(int i =0; i < btnCount; i++){
-            GameObject btn = (GameObject)Instantiate(buttonTemplate,scrollViewContent.transform);
-            //btn.transform.SetParent(scrollViewContent.transform);
+        for (int i = 0; i < btnCount; i++){
+            //Transform btn = (Transform)Instantiate(buttonTemplate,scrollViewContent.transform);
+            Instantiate(buttonTemplate,scrollViewContent.transform);
         }
         
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
+
+}
+
