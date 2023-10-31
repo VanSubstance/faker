@@ -772,8 +772,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 747cc6a6550a9ec4ab9571e6f8ee3e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollViewContent: {fileID: 1427900725}
-  buttonTemplate: {fileID: 5961417225745233212, guid: 571d375d30ce60a4fbfb6d164c0992a7, type: 3}
+  scrollViewContent: {fileID: 1427900726}
+  buttonTemplate: {fileID: 3171543001333489905, guid: 571d375d30ce60a4fbfb6d164c0992a7, type: 3}
   btnCount: 10
 --- !u!1 &353049865 stripped
 GameObject:
