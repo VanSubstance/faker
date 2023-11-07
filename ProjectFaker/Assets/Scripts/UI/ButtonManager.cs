@@ -7,34 +7,36 @@ public class ButtonManager : MonoBehaviour
 {
 
     [SerializeField]
-    private Transform scrollViewContent_class;
+    private Transform scrollViewContentClass;
     [SerializeField]
-    private Transform scrollViewContent_item;
+    private Transform scrollViewContentItem;
     [SerializeField]
-    private Transform buttonTemplate;
+    private UnityEngine.UI.Button buttonTemplate;
 
-    public int classBtnCount = 4;
-    public int itemBtnCount=5;
+    public int ClassBtnCount = 4;
+    public int ItemBtnCount=5;
     
-    void Start()
+    private void Start()
     {
-      ActiveScrollViewContent_class();
+      ActiveScrollViewContentClass();
     }
 
-    void ActiveScrollViewContent_class()
+    private void ActiveScrollViewContentClass()
     {
-      for (int i = 0; i < classBtnCount; i++){
-        Transform button = Instantiate(buttonTemplate,scrollViewContent_class.transform);
+      for (int i = 0; i < ClassBtnCount; i++)
+      {
+        UnityEngine.UI.Button button = Instantiate(buttonTemplate, scrollViewContentClass);
         int btnId = i;
-        button.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() => ActiveScrollViewContent_item(btnId));
+        button.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() => ActiveScrollViewContentItem(btnId));
       }
     }
 
-    void ActiveScrollViewContent_item(int classId)
-    { 
-      scrollViewContent_class.gameObject.SetActive(false);
-      for (int i = 0; i < itemBtnCount; i++){
-        Instantiate(buttonTemplate,scrollViewContent_item);
+    private void ActiveScrollViewContentItem(int classId)
+    {
+      scrollViewContentClass.gameObject.SetActive(false);
+      for (int i = 0; i < ItemBtnCount; i++)
+      {
+        Instantiate(buttonTemplate, scrollViewContentItem);
       }
     }
 }
